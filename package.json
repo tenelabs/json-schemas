@@ -1,6 +1,6 @@
 {
   "name": "@tenedev/json-schemas",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A collection of JSON Schemas",
   "license": "MIT",
   "author": "Sriman",

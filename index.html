@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ApiVibe JSON Schema</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 2rem 0;
+        background: #18181b;
+        color: #e4e4e7;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        width: 100%;
+        max-width: 800px;
+      }
+      .search {
+        margin-bottom: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        border: 1px solid #3f3f46;
+        background: #27272a;
+        color: #e4e4e7;
+      }
+      .search:focus {
+        outline: none;
+        border-color: #3f3f46;
+        box-shadow: 0 0 0 2px #3f3f46;
+      }
+      .search::placeholder {
+        color: #a1a1aa;
+      }
+      h1 {
+        text-transform: capitalize;
+      }
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      .card {
+        background: #27272a;
+        border: 1px solid #3f3f46;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: box-shadow 0.2s, background 0.2s;
+        text-decoration: none;
+        color: white;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      .card:hover {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+        background: #3f3f46ae;
+      }
+      .error {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        color: #f87171;
+        cursor: pointer;
+      }
+      .loading {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #d0a741;
+        display: none;
+      }
+      .loading::before {
+        content: "⏳ ";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="search" class="search" placeholder="Search" />
+      <h1>user</h1>
+<div class="grid" data-category="user">
+  <a class="card" href="https://unpkg.com/@tenedev/json-schemas@latest/user/portfolio.schema.json" target="_blank" rel="noopener noreferrer">portfolio</a>
+</div>
+
+    </div>
+
+    <script>
+      const searchInput = document.getElementById("search");
+      const categoryGrids = document.querySelectorAll("[data-category]");
+
+      searchInput.addEventListener("input", function (e) {
+        const query = e.target.value.toLowerCase();
+
+        categoryGrids.forEach((grid) => {
+          const cards = grid.querySelectorAll(".card");
+          let anyVisible = false;
+
+          cards.forEach((card) => {
+            const text = card.textContent.toLowerCase();
+            const match = text.includes(query);
+            card.style.display = match ? "block" : "none";
+            if (match) anyVisible = true;
+          });
+
+          grid.previousElementSibling.style.display = anyVisible
+            ? "block"
+            : "none";
+          grid.style.display = anyVisible ? "grid" : "none";
+        });
+      });
+    </script>
+  </body>
+</html>

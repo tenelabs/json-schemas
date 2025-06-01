@@ -1,0 +1,33 @@
+{
+  "name": "@tenedev/json-schemas",
+  "version": "0.0.0",
+  "description": "A collection of JSON Schemas",
+  "license": "MIT",
+  "author": "Sriman",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it",
+    "update": "node scripts/update-schemas.js && node scripts/update-readme.js && node scripts/generate-html.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "json-schemas",
+    "schemas",
+    "cdn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tenelabs/json-schemas.git"
+  },
+  "homepage": "https://tenelabs.github.io/json-schemas",
+  "bugs": {
+    "url": "https://github.com/tenelabs/json-schemas/issues"
+  },
+  "devDependencies": {
+    "release-it": "^19.0.1"
+  }
+}

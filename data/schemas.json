@@ -1,0 +1,7 @@
+[
+  {
+    "category": "user",
+    "name": "portfolio",
+    "cdn": "https://unpkg.com/@tenedev/json-schemas@latest/user/portfolio.schema.json"
+  }
+]
